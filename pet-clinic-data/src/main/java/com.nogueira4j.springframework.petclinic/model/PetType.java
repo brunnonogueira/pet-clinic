@@ -2,16 +2,15 @@ package com.nogueira4j.springframework.petclinic.model;
 
 import lombok.*;
 
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class PetType extends BaseEntity {
+public class PetType {
 
     private String name;
 
-    @Override
-    public String toString() {
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
