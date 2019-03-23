@@ -1,7 +1,7 @@
 package com.nogueira4j.springframework.petclinic.model;
 
 
-public class Person {
+public class Person extends BaseEntity{
 
     private String firstName;
     private String lastName;
