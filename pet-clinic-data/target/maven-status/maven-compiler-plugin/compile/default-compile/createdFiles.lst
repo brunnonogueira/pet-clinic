@@ -1,7 +1,15 @@
+com\nogueira4j\springframework\petclinic\services\PetService.class
+com\nogueira4j\springframework\petclinic\model\PetType.class
 com\nogueira4j\springframework\petclinic\services\map\PetMapService.class
+com\nogueira4j\springframework\petclinic\model\Pet.class
+com\nogueira4j\springframework\petclinic\model\Owner.class
+com\nogueira4j\springframework\petclinic\services\CrudService.class
 com\nogueira4j\springframework\petclinic\services\map\AbstractMapService.class
+com\nogueira4j\springframework\petclinic\model\BaseEntity.class
 com\nogueira4j\springframework\petclinic\services\VetService.class
 com\nogueira4j\springframework\petclinic\services\PetTypeService.class
 com\nogueira4j\springframework\petclinic\services\map\OwnerMapService.class
 com\nogueira4j\springframework\petclinic\model\Vet.class
 com\nogueira4j\springframework\petclinic\services\map\VetMapService.class
+com\nogueira4j\springframework\petclinic\model\Person.class
+com\nogueira4j\springframework\petclinic\services\OwnerService.class
