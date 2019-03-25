@@ -2,9 +2,11 @@ package com.nogueira4j.springframework.petclinic.services.map;
 
 import com.nogueira4j.springframework.petclinic.model.Vet;
 import com.nogueira4j.springframework.petclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
@@ -24,7 +26,7 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
