@@ -4,7 +4,6 @@ import com.nogueira4j.springframework.petclinic.model.Owner;
 import com.nogueira4j.springframework.petclinic.model.Pet;
 import com.nogueira4j.springframework.petclinic.repositories.PetRepository;
 import com.nogueira4j.springframework.petclinic.services.PetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,11 @@ import java.util.Set;
 @Profile("springdatajpa")
 public class PetSDJpaService implements PetService {
 
-    @Autowired
     private PetRepository petRepository;
+
+    public PetSDJpaService(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
 
     @Override
     public Set<Pet> findAll() {

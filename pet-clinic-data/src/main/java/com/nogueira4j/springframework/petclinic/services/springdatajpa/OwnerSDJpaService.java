@@ -5,30 +5,35 @@ import com.nogueira4j.springframework.petclinic.repositories.OwnerRepository;
 import com.nogueira4j.springframework.petclinic.repositories.PetRepository;
 import com.nogueira4j.springframework.petclinic.repositories.PetTypeRepository;
 import com.nogueira4j.springframework.petclinic.services.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
 public class OwnerSDJpaService implements OwnerService {
 
-    @Autowired
     private OwnerRepository ownerRepository;
-
-    @Autowired
     private PetRepository petRepository;
-
-    @Autowired
     private PetTypeRepository petTypeRepository;
 
+    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
+        this.ownerRepository = ownerRepository;
+        this.petRepository = petRepository;
+        this.petTypeRepository = petTypeRepository;
+    }
 
     @Override
     public Owner findByLastName(String lastName) {
         return ownerRepository.findByLastName(lastName);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
     }
 
     @Override

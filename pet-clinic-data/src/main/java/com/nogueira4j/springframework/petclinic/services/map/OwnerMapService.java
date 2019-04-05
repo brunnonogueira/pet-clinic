@@ -8,6 +8,7 @@ import com.nogueira4j.springframework.petclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -42,16 +43,16 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     public Owner save(Owner object) {
         Owner savedOwner = null;
 
-        if(object != null){
-            if(object.getPets() != null){
+        if (object != null) {
+            if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                    if (pet.getPetType() != null){
+                    if (pet.getPetType() != null) {
                         pet.setPetType(petTypeService.save(pet.getPetType()));
-                    } else{
+                    } else {
                         throw new RuntimeException("Pet Type is not required");
                     }
 
-                    if(pet.getId() == null){
+                    if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }
@@ -63,7 +64,6 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
         } else {
             return null;
         }
-
     }
 
     @Override
@@ -72,7 +72,16 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public Owner findByLastName(String lastName){
+    public Owner findByLastName(String lastName) {
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
         return null;
     }
 
